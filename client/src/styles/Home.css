@@ -1,0 +1,283 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 12rem;
+    /* padding-top: 12rem; */  
+}
+
+.form_container{
+ position: absolute;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+ height: 100vh;
+ top: 0;
+ background-color: #2f2f2f7d;
+ backdrop-filter: blur(5px);
+}
+
+.form_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    margin-top: 50px;
+    background-color: #fafafa;
+    padding: 3rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.form_box  h1{
+   color: #222; 
+}
+
+.sumbit {
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    border: none;
+    background-color: #3d7fc6;
+    color: #fafafa;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.5s ease-in-out;
+}
+
+.close{
+    color: #fafafa;
+    background-color: #c63d3d;
+    border: none;
+    border-radius: 0.4rem;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.close:hover{
+    background-color: #ff5e5e;
+}
+
+.sumbit:hover{
+   background-color: #46c63d;
+}
+
+
+/* input form */
+
+.formInput {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+}
+
+.formInput input {
+    padding: 12px;
+    margin: 15px 0px;
+    border-radius: 5px;
+    border: 2px solid #2222221b;
+    font-size: 16px;
+    outline: none;
+
+}
+
+.formInput label {
+    color: #222;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    transform: translateY(26px);
+    transition: 0.5s, color 0.3s;
+}
+
+.formInput input:focus~label {
+    transform: translateY(-6px) scale(.9);
+    transform-origin: top left;
+    color: #d19a22;
+    background-color: #fafafa;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    padding: 1px 4px;
+}
+
+.formInput input:not(:placeholder-shown)~label {
+    transform: translateY(-6px) scale(.9);
+    transform-origin: top left;
+    color: #46c63d;
+    background-color: #fafafa;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    padding: 1px 4px;
+}
+
+
+
+/* Clients */
+.container_clients{
+    width: 80%;
+    background-color: #fafafabb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+    /* padding-top: 12rem; */  
+}
+
+.client-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 0.5rem;
+    margin: 1rem 0 0.5rem 0;
+    border-radius: 0.5rem;
+    border: 2px solid #2222221b;
+    /* padding-top: 12rem; */  
+}
+
+.more_clientes{
+    background-color: #3d78c6;
+    border-radius: 0.5rem;
+    border: 2px solid #2222221b;
+    color: #fafafa;
+    font-size: xx-large;
+    font-weight: 900;
+    cursor: pointer;
+    width: 100%;
+    padding: 0.5rem;
+    transition: all 0.5s ease-in-out;
+    /* padding-top: 12rem; */  
+}
+
+.more_clientes:hover{
+    background-color: #5497fd;
+}
+
+
+.client_box{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+}
+
+.client_box div{
+    margin: 0.2rem 2rem;
+    color: #222222;
+}
+
+.client_buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 1rem;
+}
+
+.client_buttons button{
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.update{
+    color: #fafafa;
+    background-color: #eebf16;
+    border: 2px solid #2222221b;
+}
+
+.update:hover{
+    background-color: #f3d568;
+}
+
+.delete{
+    color: #fafafa;
+    background-color: #c63d3d;
+    border: 2px solid #2222221b;
+}
+
+.delete:hover{
+    background-color: #ff5e5e;
+}
+
+.container_totalPrice{
+    width: 80%;
+    display: flex;
+   justify-content: space-between;
+    background-color: #fafafabb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+}
+
+.container_totalPrice h1{
+    color: #fafafa;
+    background-color: #46c63d;
+    border: 2px solid #2222221b;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+}
+
+.container_totalPrice button{
+    border: 2px solid #2222221b;
+    background-color: #3d78c6;
+    border-radius: 0.5rem;
+    color: #fafafa;
+    font-size: 1.3rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+@media only screen and (max-width: 730px) {
+    .form {
+        flex-direction: column;  
+    }
+
+    .from_box {
+        padding: 2rem;
+    }
+
+    .form h1 {
+        font-size: 35px;
+    }
+
+    .formInput input {
+        font-size: 12px;
+    }
+
+    .formInput input:focus~label {
+        transform: translateY(-4px) scale(.9);
+        transform-origin: top left;
+    }
+
+    .formInput input:not(:placeholder-shown)~label {
+        transform: translateY(-4px) scale(.9);
+        transform-origin: top left;
+    }
+
+    .sumbit {
+        height: 50px;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+}
