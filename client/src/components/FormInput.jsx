@@ -8,7 +8,6 @@ export const FormInput = (props) => {
     <div className="formInput">
       <input
         placeholder=" "
-        className={className}
         type={type}
         onChange={onChange}
         name={name}

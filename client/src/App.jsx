@@ -1,20 +1,22 @@
-import './styles/App.css'
-import Navbar from './components/Navbar';
-import { Home } from './pages/Home';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import "./styles/App.css";
+import Navbar from "./components/Navbar";
+import { Home } from "./pages/Home";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { Contact } from "./pages/Contact";
 
 function App() {
-
   return (
-    <Router>
-      <Navbar />
+    <AnimatePresence>
+      <Router>
+        <Navbar />
         <Routes>
-            <Route exact path="/" element={<Home />} />
-            {/* <Route exact path="/about" component={About} />
-            <Route exact path="/contact" component={Contact} /> */}
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/contact" element={<Contact />} />
         </Routes>
-    </Router>
-  )
+      </Router>
+    </AnimatePresence>
+  );
 }
 
-export default App
+export default App;

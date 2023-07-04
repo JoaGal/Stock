@@ -7,6 +7,7 @@ import { useClients } from "../hooks/useClients";
 import { useOpenForm } from "../hooks/useOpenForm";
 import { CardClient } from "../components/CardClient";
 import { Calculator } from "../components/Calculator";
+import { motion } from "framer-motion";
 
 export const Home = () => {
   const { clientsList, getClients } = useClients();
@@ -19,7 +20,6 @@ export const Home = () => {
   });
   const [calculator, setCalculator] = useState(false);
   const { openUpdateClient, openUpdate, setOpenUpdate } = useOpenForm(setForm);
-  
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -45,7 +45,11 @@ export const Home = () => {
   }, [clientsList]);
 
   return (
-    <div className="container">
+    <motion.div
+      className="container"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+    >
       {openUpdate.open && (
         <Form
           functionForm={functionForm}
@@ -57,6 +61,7 @@ export const Home = () => {
         />
       )}
       <div className="container_clients">
+        <h1>Control Stock</h1>
         <button className="more_clientes" onClick={openUpdateClient}>
           +
         </button>
@@ -71,12 +76,12 @@ export const Home = () => {
       </div>
       <div className="container_totalPrice">
         <h1>Total: ${totalPrice}</h1>
-        <button onClick={()=> setCalculator(true)}>
+        <button onClick={() => setCalculator(true)}>
           <i className="fa-solid fa-calculator" />
         </button>
       </div>
-       { calculator && <Calculator setCalculator={setCalculator} /> }
+      {calculator && <Calculator setCalculator={setCalculator} />}
       <ToastContainer position="bottom-right" autoClose={3000} />
-    </div>
+    </motion.div>
   );
 };

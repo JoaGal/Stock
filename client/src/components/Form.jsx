@@ -1,7 +1,8 @@
-import "../styles/Home.css";
+import "../styles/components/Form.css";
 import { FormInput } from "../components/FormInput";
 import { FormData } from "../components/FormData";
 import Axios from "axios";
+import { toast } from "react-toastify";
 
 export const Form = ({functionForm, handleChange, setOpenUpdate, form, setForm, openUpdate}) => {
     
@@ -12,6 +13,8 @@ export const Form = ({functionForm, handleChange, setOpenUpdate, form, setForm, 
           price: parseFloat(form.price),
         }).then(() => {
             functionForm("Client created")
+        }).catch(() => {
+            toast.error("Error creating client")
         });
       };
     
@@ -23,6 +26,8 @@ export const Form = ({functionForm, handleChange, setOpenUpdate, form, setForm, 
           price: parseFloat(form.price),
         }).then(() => {
             functionForm("Client updated")
+        }).catch(() => {
+            toast.error("Error updating client")
         });
       };
     
@@ -36,7 +41,7 @@ export const Form = ({functionForm, handleChange, setOpenUpdate, form, setForm, 
       };
 
   return (
-    <div className="form_container" onClick={closeForm}>
+    <div className="form_container">
       <div className="form_box">
         <button className="close" onClick={closeForm}>
           <i className="fas fa-times" />
@@ -52,7 +57,7 @@ export const Form = ({functionForm, handleChange, setOpenUpdate, form, setForm, 
             value={form[item.name]}
           />
         ))}
-        <button className="sumbit" onClick={handleSubmit}>
+        <button className="submit" onClick={handleSubmit}>
           Submit
         </button>
       </div>

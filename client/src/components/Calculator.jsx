@@ -1,26 +1,8 @@
 import React, { useState } from "react";
-import "../styles/Calculator.css";
+import "../styles/components/Calculator.css";
+import { CalculatorData } from "./CalculatorData";
 export const Calculator = ({setCalculator}) => {
-  const buttons = [
-    { value: "Clear", cName: "clear" },
-    { value: "/", cName: "operator" },
-    { value: "*", cName: "operator" },
-    { value: "7", cName: "number" },
-    { value: "8", cName: "number" },
-    { value: "9", cName: "number" },
-    { value: "-", cName: "operator" },
-    { value: "4", cName: "number" },
-    { value: "5", cName: "number" },
-    { value: "6", cName: "number" },
-    { value: "+", cName: "plus" },
-    { value: "1", cName: "number" },
-    { value: "2", cName: "number" },
-    { value: "3", cName: "number" },
-    { value: "0", cName: "equals" },
-    { value: "00", cName: "number" },
-    { value: ".", cName: "number" },
-    { value: "=", cName: "equal" },
-  ];
+
   const [calc, setCalc] = useState("");
   const [result, setResult] = useState("");
   const ops = ["/", "*", "+", "-", "."];
@@ -44,11 +26,14 @@ export const Calculator = ({setCalculator}) => {
   };
 
   return (
-    <div className="container_cal" onClick={()=> setCalculator(false)}>
+    <div className="container_cal" >
       <div className="calculator">
+      <button className="close_cal" onClick={()=> setCalculator(false)}>
+          <i className="fas fa-times" />
+        </button>
         <div>
           <h2 className="value">{ result === "" ? 0 : result }</h2>
-          {buttons.map((item, index) => (
+          {CalculatorData.map((item, index) => (
             <span
               key={index}
               className={item.cName}

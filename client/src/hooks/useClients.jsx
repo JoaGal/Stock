@@ -7,6 +7,8 @@ export const useClients = () => {
       const getClients = () => {
         Axios.get("http://localhost:3001/api/clients").then((res) => {
           setClientsList(res.data);
+        }).catch((err) => {
+          console.log(err);
         });
       };
     
