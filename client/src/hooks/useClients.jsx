@@ -5,7 +5,7 @@ export const useClients = () => {
     const [clientsList, setClientsList] = useState([]);
 
       const getClients = () => {
-        Axios.get("http://localhost:3001/api/clients").then((res) => {
+        Axios.get("https://control-stock-server.vercel.app/api/clients").then((res) => {
           setClientsList(res.data);
         }).catch((err) => {
           console.log(err);

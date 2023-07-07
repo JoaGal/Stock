@@ -7,7 +7,7 @@ export const CardClient = ({openUpdateClient, item, getClients}) => {
 
 
     const deleteClient = (id) => {
-        Axios.delete(`http://localhost:3001/api/delete/${id}`).then(() => {
+        Axios.delete(`https://control-stock-server.vercel.app/api/delete/${id}`).then(() => {
           getClients();
           toast.success("Client deleted");
         });

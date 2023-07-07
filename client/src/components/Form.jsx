@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 export const Form = ({functionForm, handleChange, setOpenUpdate, form, setForm, openUpdate}) => {
     
     const createClient = () => {
-        Axios.post("http://localhost:3001/api/insert", {
+        Axios.post("https://control-stock-server.vercel.app/api/insert", {
           product: form.product,
           amount: parseInt(form.amount),
           price: parseFloat(form.price),
@@ -19,7 +19,7 @@ export const Form = ({functionForm, handleChange, setOpenUpdate, form, setForm, 
       };
     
       const updateClient = (id) => {
-        Axios.put("http://localhost:3001/api/update", {
+        Axios.put("https://control-stock-server.vercel.app/api/update", {
           id: id,
           product: form.product,
           amount: parseInt(form.amount),
@@ -30,7 +30,7 @@ export const Form = ({functionForm, handleChange, setOpenUpdate, form, setForm, 
             toast.error("Error updating client")
         });
       };
-    
+
       const handleSubmit = () => {
         openUpdate.create ? createClient() : updateClient(form.id);
       };
