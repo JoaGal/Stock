@@ -1,11 +1,10 @@
-.navbarItems {
+.navbar_container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
     padding: 0 30px;
     background-color: #fafafa;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     width: 95%;
     height: 80px;
     border-radius: 13px;
@@ -13,16 +12,23 @@
     top: 20px;
     left: 50%;
     transform: translate(-50%);
-    border: 2px solid #2222221b;
+    z-index: 50;
 }
 
-.logo {
-    animation: logo-spin infinite 5s linear;
+.navbar_container img {
+    animation: logoSpin infinite 5s linear;
     justify-self: flex-start;
     cursor: pointer;
 }
 
-.nav-menu{
+.navbar_container i{
+    color: #222;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.navbar_menu{
     display: grid;
     grid-template-columns: repeat(5, auto);
     grid-gap: 10px;
@@ -31,7 +37,7 @@
     justify-content: end;
 }
 
-#nav-links{
+#navbar_links{
     text-decoration: none;
     color: #222;
     padding: 0.7rem 1rem;
@@ -40,18 +46,27 @@
     cursor: pointer;
 }
 
-#nav-links:hover{
+#navbar_links-login{
+    text-decoration: none;
+    color: #222;
+    padding: 0.7rem 1rem;
+    font-size: 1.4rem;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+#navbar_links:hover{
     background-color: #c63d3d;
     color: #fafafa;
     border-radius: 4px;
     transition: all 0.5s ease-in-out;
 }
 
-.menu-icons i{
-    color: #222;
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: none;
+#navbar_links-login:hover{
+    background-color: #3d7fc6;
+    color: #fafafa;
+    border-radius: 4px;
+    transition: all 0.5s ease-in-out;
 }
 
 
@@ -61,7 +76,11 @@
         z-index: 99;
     }
 
-    .nav-menu{
+    .navbar_container i{
+        display: block;
+    }
+
+    .navbar_menu{
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -84,23 +103,19 @@
         top: 0;
     }
 
-    #nav-links{
+    #navbar_links{
         display: block;
         padding: 20px;
         font-size: 1.3rem;
         color: #ffffff;
         text-shadow: 1px 1px 0 #000000;
     }
-
-    .menu-icons i{
-        display: block;
-    }
     
 }
 
 
 
-  @keyframes logo-spin {
+  @keyframes logoSpin {
     0%,80% {
         transform: rotateY(360deg) 
       }

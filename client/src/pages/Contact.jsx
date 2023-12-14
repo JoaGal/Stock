@@ -2,9 +2,9 @@ import React, { useRef } from "react";
 import "../styles/Contact.css";
 import joa from "../assets/joa.jpeg";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
+import { InputCustom } from "../components/InputCustom";
 
 export const Contact = () => {
   const form = useRef();
@@ -38,75 +38,50 @@ export const Contact = () => {
   };
 
   return (
-    <motion.div
-      className="c_container"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-    >
-      <div className="c_box">
-        <h1>Contact</h1>
-        <h2>Our users are very satisfied about our excellent support</h2>
-        <div className="c_form">
-          <div className="c_info">
-            <img src={joa} alt="logo" />
-            <p>
-              My name is Joaquin Galdeano, I'm a web developer. This is one of
-              my first projects as a Full Stack. Any questions contact me!!
-            </p>
-            <div className="c_icons">
-              <Link
-                className="fa-brands fa-linkedin"
-                to="https://www.linkedin.com/in/joaquin-galdeano-174281209/"
-                target="_blank"
-              />
-              <Link
-                className="fa-brands fa-github"
-                to="https://github.com/JoaGal"
-                target="_blank"
-              />
-              <Link
-                className="fa-solid fa-image-portrait"
-                to="https://portfolio-joagal.vercel.app/"
-                target="_blank"
-              />
-            </div>
+    <div className="box">
+      <h1 className="textShadow">Contact</h1>
+      <h2 className="textShadow">Our users are very satisfied about our excellent support</h2>
+      <div className="contact_form">
+        <div className="contact_info">
+          <img src={joa} alt="logo" className="boxShadow"/>
+          <p className="textShadow">
+            My name is Joaquin Galdeano, I'm a web developer. This is one of my
+            first projects as a Full Stack. Any questions contact me!!
+          </p>
+          <div>
+            <Link
+              className="fa-brands fa-linkedin textShadow"
+              to="https://www.linkedin.com/in/joaquin-galdeano-174281209/"
+              target="_blank"
+            />
+            <Link
+              className="fa-brands fa-github textShadow"
+              to="https://github.com/JoaGal"
+              target="_blank"
+            />
+            <Link
+              className="fa-solid fa-image-portrait textShadow"
+              to="https://portfolio-joagal.vercel.app/"
+              target="_blank"
+            />
           </div>
-          <form className="c_social" ref={form} onSubmit={sendEmail}>
-            <div className="c_input">
-              <input
-                placeholder=" "
-                type="text"
-                className="c_info"
-                name="user_name"
-              />
-              <label>Name</label>
-            </div>
-            <div className="c_input">
-              <input
-                placeholder=" "
-                type="text"
-                className="c_info"
-                name="user_email"
-              />
-              <label>Email</label>
-            </div>
-            <div className="c_input">
-              <textarea
-                placeholder=" "
-                type="text"
-                className="c_info"
-                id="textArea"
-                name="message"
-              />
-              <label>Message</label>
-            </div>
-            <button type="submit" className="submit">
-              Send
-            </button>
-          </form>
         </div>
+        <form className="contact_letter" ref={form} onSubmit={sendEmail}>
+          <InputCustom key="name" label={"Name"} type={"text"} name="user_name" />
+          <InputCustom key="gmail" label={"Email"} type={"email"} name="user_email" />
+          <div className="inputCustom">
+            <textarea
+              placeholder=" "
+              type="text"
+              className="boxShadow"
+              name="message"
+            />
+            <label>Message</label>
+          </div>
+          <button type="submit" className="boxShadow submit">Submit</button>
+        </form>
       </div>
       <ToastContainer position="bottom-right" autoClose={3000} />
-    </motion.div>
+    </div>
   );
 };

@@ -1,4 +1,4 @@
-.form_container{
+.form_container {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -8,121 +8,95 @@
     top: 0;
     background-color: #2f2f2f7d;
     backdrop-filter: blur(5px);
-   }
-   
-   .form_box {
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       justify-content: center;
-       width: 350px;
-       height: auto;
-       margin-top: 50px;
-       background-color: #fafafa;
-       padding: 3rem;
-       border-radius: 0.5rem;
-       box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
-       position: relative;
-   }
-   
-   .form_box  h1{
-      color: #222; 
-      margin-bottom: 1rem;
-   }
-   
-   .submit {
-       width: 100%;
-       height: 60px;
-       padding: 10px;
-       border: none;
-       background-color: #3d7fc6;
-       color: #fafafa;
-       border-radius: 5px;
-       font-weight: bold;
-       font-size: 24px;
-       cursor: pointer;
-       margin-top: 5px;
-       transition: all 0.5s ease-in-out;
-   }
-   
-   .close{
-       color: #fafafa;
-       background-color: #c63d3d;
-       border: none;
-       border-radius: 0.4rem;
-       width: 30px;
-       height: 30px;
-       cursor: pointer;
-       transition: all 0.5s ease-in-out;
-       position: absolute;
-       top: 15px;
-       right: 15px;
-   }
-   
-   .close:hover{
-       background-color: #ff5e5e;
-   }
-   
-   .submit:hover{
-      background-color: #46c63d;
-   }
-   
-   
-   /* input form */
-   
-   .formInput {
-       position: relative;
-       display: flex;
-       flex-direction: column;
-       width: 280px;
-   }
-   
-   .formInput input {
-       padding: 12px;
-       margin: 15px 0px;
-       border-radius: 5px;
-       border: 2px solid #2222221b;
-       font-size: 16px;
-       outline: none;
-   
-   }
-   
-   .formInput label {
-       color: #222;
-       cursor: pointer;
-       position: absolute;
-       top: 0px;
-       left: 5px;
-       transform: translateY(26px);
-       transition: 0.5s, color 0.3s;
-   }
-   
-   .formInput input:focus~label {
-       transform: translateY(-6px) scale(.9);
-       transform-origin: top left;
-       color: #d19a22;
-       background-color: #fafafa;
-       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-       border-radius: 4px;
-       padding: 1px 4px;
-   }
-   
-   .formInput input:not(:placeholder-shown)~label {
-       transform: translateY(-6px) scale(.9);
-       transform-origin: top left;
-       color: #46c63d;
-       background-color: #fafafa;
-       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-       border-radius: 4px;
-       padding: 1px 4px;
-   }
+}
 
-   @media screen and (max-width: 768px){
+.form_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: auto;
+    margin-top: 50px;
+    background-color: #fafafa;
+    padding: 3rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.form_box h1 {
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+
+/* input form */
+
+.inputCustom {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.inputCustom input {
+    padding: 12px;
+    margin: 15px 0px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+}
+
+.inputCustom label {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    transform: translateY(26px);
+    transition: 0.5s, color 0.3s;
+}
+
+.inputCustom textarea {
+    padding: 12px;
+    margin: 15px 0px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    height: 200px;
+}
+
+.inputCustom input:focus~label,
+textarea:focus~label {
+    transform: translateY(-6px) scale(.9);
+    transform-origin: top left;
+    color: #d19a22;
+    background-color: #fafafa;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    padding: 1px 4px;
+}
+
+.inputCustom input:not(:placeholder-shown)~label,
+textarea:not(:placeholder-shown)~label {
+    transform: translateY(-6px) scale(.9);
+    transform-origin: top left;
+    color: #46c63d;
+    background-color: #fafafa;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    padding: 1px 4px;
+}
+
+@media screen and (max-width: 768px) {
     .form_box {
         width: 340px;
     }
-    .submit{
+
+    .submit {
         font-size: 1.3rem;
         height: 50px;
     }
-   }
+}

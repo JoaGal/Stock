@@ -1,47 +1,29 @@
-.container_cal{
+.cal_container {
     position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        background-color: #2f2f2f7d;
-        backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    background-color: #2f2f2f7d;
+    backdrop-filter: blur(5px);
 }
 
-.calculator{
-   width: 340px;
-   padding: 20px;
+.cal_box {
+    width: 340px;
+    padding: 20px;
     background-color: #fafafa;
     border-radius: 0.5rem;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
-    position: relative; 
+    position: relative;
 }
 
-.close_cal{
-    color: #fafafa;
-    background-color: #c63d3d;
-    border: none;
-    border-radius: 0.4rem;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-    position: absolute;
-    top: 5px;
-    right: 5px;
+.cal_box div {
+    display: grid;
 }
 
-.close_cal:hover{
-    background-color: #ff5e5e;
-}
-
-.calculator div{
-    display: grid; 
-}
-
- .value{
+.value {
     grid-column: span 4;
     user-select: none;
     border: 2px solid #2222221b;
@@ -58,9 +40,9 @@
     font-weight: 500;
 }
 
-.calculator span{
+.cal_box span {
     padding: 10px;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);  
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     border: 2px solid #2222221b;
     display: flex;
@@ -75,50 +57,50 @@
 
 }
 
-.calculator span.clear{
+.cal_box span.clear {
     grid-column: span 2;
     background-color: #c63d3d;
     color: #fafafa;
 }
 
-.calculator span.plus{
+.cal_box span.plus {
     grid-row: span 2;
     background-color: #eebf16;
     color: #fafafa;
 }
 
-.calculator span.equal{
+.cal_box span.equal {
     background-color: #3d7fc6;
     color: #fafafa;
 }
 
-.calculator span.operator{
+.cal_box span.operator {
     background-color: #eebf16;
     color: #fafafa;
 }
 
-.calculator span:hover{
+.cal_box span:hover {
     background-color: #2222221b;
 }
 
-.calculator span.clear:hover{
+.cal_box span.clear:hover {
     background-color: #ff5e5e;
 }
 
-.calculator span.plus:hover{
+.cal_box span.plus:hover {
     background-color: #f0d04e;
 }
 
-.calculator span.equal:hover{
+.cal_box span.equal:hover {
     background-color: #5e9fdc;
 }
 
-.calculator span.operator:hover{
+.cal_box span.operator:hover {
     background-color: #f0d04e;
 }
 
-@media screen and (max-width: 400px){
-    .calculator{
+@media screen and (max-width: 400px) {
+    .cal_box {
         margin-top: 8rem;
         max-width: 340px;
     }

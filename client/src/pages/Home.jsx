@@ -5,9 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { Form } from "../components/Form";
 import { useClients } from "../hooks/useClients";
 import { useOpenForm } from "../hooks/useOpenForm";
-import { CardClient } from "../components/CardClient";
+import { ProductCard } from "../components/ProductCard";
 import { Calculator } from "../components/Calculator";
-import { motion } from "framer-motion";
 
 export const Home = () => {
   const { clientsList, getClients } = useClients();
@@ -45,11 +44,7 @@ export const Home = () => {
   }, [clientsList]);
 
   return (
-    <motion.div
-      className="container"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-    >
+    <>
       {openUpdate.open && (
         <Form
           functionForm={functionForm}
@@ -60,13 +55,14 @@ export const Home = () => {
           openUpdate={openUpdate}
         />
       )}
-      <div className="container_clients">
-        <h1>Control Stock</h1>
-        <button className="more_clientes" onClick={openUpdateClient}>
+      <div className="box">
+        <h1 className="textShadow">Control Stock</h1>
+        <h2 className="textShadow">Hace tu lista del super wacho</h2>
+        <button className="more_clientes boxShadow" onClick={openUpdateClient}>
           +
         </button>
         {clientsList.map((item) => (
-          <CardClient
+          <ProductCard
             key={item.id}
             item={item}
             openUpdateClient={openUpdateClient}
@@ -74,7 +70,7 @@ export const Home = () => {
           />
         ))}
       </div>
-      <div className="container_totalPrice">
+      <div className="home_container-price boxShadow">
         <h1>Total: ${totalPrice}</h1>
         <button onClick={() => setCalculator(true)}>
           <i className="fa-solid fa-calculator" />
@@ -82,6 +78,6 @@ export const Home = () => {
       </div>
       {calculator && <Calculator setCalculator={setCalculator} />}
       <ToastContainer position="bottom-right" autoClose={3000} />
-    </motion.div>
+    </>
   );
 };

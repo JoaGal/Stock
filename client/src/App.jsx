@@ -1,21 +1,33 @@
 import "./styles/App.css";
-import Navbar from "./components/Navbar";
 import { Home } from "./pages/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Contact } from "./pages/Contact";
+import { Login } from "./pages/Login";
+import { motion } from "framer-motion";
+import { Register } from "./pages/Register";
+import { Navbar } from "./components/Navbar";
 
 function App() {
   return (
-    <AnimatePresence>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/contact" element={<Contact />} />
-        </Routes>
-      </Router>
-    </AnimatePresence>
+    <motion.div
+      className="container"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+    >
+      <AnimatePresence>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="*" element={<h1>404</h1>} />
+          </Routes>
+        </Router>
+      </AnimatePresence>
+    </motion.div>
   );
 }
 

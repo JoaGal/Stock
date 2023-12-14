@@ -1,152 +1,59 @@
-.c_container{
+.contact_form{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 12rem;
-}
-.c_box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    background-color: #fafafabb;
     padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    margin-bottom: 1.5rem;
-}
-.c_box h1{
-    color: #222;
 }
 
-.c_box h2{
-    color: #222222c8;
-    margin-bottom: 2rem;
-    font-size: 1.2rem;
-}
-
-.c_form{
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-    justify-content: center;
-    height: auto;
-    background-color: #fafafa;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border: 2px solid #2222221b;
-    position: relative;
-    color: #222;
-}
-
-.c_info{
+.contact_info{
     width: 320px;
     margin-right: 1rem;
 }
-.c_info img{
+.contact_info img{
     width: 100%;
     height: 300px;
     object-fit: cover;
     border-radius: 0.5rem;
-    border: 2px solid #2222221b;
 }
-.c_info a{
+.contact_info p{
+    margin: 1rem 0;
+}
+
+.contact_info a{
     margin: 0 0.7rem;
-    margin-top: 1rem;
-    font-size: 1.7rem;
+    font-size: 2rem;
     cursor: pointer;
     color: #3d7fc6;
     transition: all 0.5s ease-in-out;
     text-decoration: none;
 }
 
-.c_info a:hover{
+.contact_info a:hover{
     color: #46c63d;
 }
 
-.c_social{
+.contact_letter{
     width: 320px;
-    margin-left: 1rem;
+    margin: 0 0 0 1rem;
 }
-
-.c_input {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.c_input .c_info {
-    padding: 12px;
-    margin: 15px 0px;
-    border-radius: 5px;
-    border: 2px solid #2222221b;
-    font-size: 16px;
-    outline: none;
-
-}
-
-.c_input label {
-    cursor: pointer;
-    position: absolute;
-    top: 0px;
-    left: 5px;
-    transform: translateY(26px);
-    transition: 0.5s, color 0.3s;
-}
-
-.c_input .c_info:focus~label {
-    transform: translateY(-6px) scale(.9);
-    transform-origin: top left;
-    color: #d19a22;
-    background-color: #fafafa;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
-    padding: 1px 4px;
-}
-
-.c_input .c_info:not(:placeholder-shown)~label {
-    transform: translateY(-6px) scale(.9);
-    transform-origin: top left;
-    color: #46c63d;
-    background-color: #fafafa;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
-    padding: 1px 4px;
-}
-
-#textArea{
-    height: 200px;
-}
-
-
 
 @media only screen and (max-width: 800px) {
-    .c_container{
-        margin: 0.5rem;
-        margin-top: 8rem;
-    }
-
-    .c_form{
+    .contact_form{
         flex-direction: column;
         padding: 0.5rem;
     }
 
-    .c_info{
+    .contact_info{
         width: 100%;
         margin: 0;
         margin-bottom: 1rem;
     }
 
+    .contact_info a{
+        font-size: 1.7rem;
+    }
+
     .c_social{
         width: 100%;
         margin: 0;
-    }
-
-    .c_info a{
-        font-size: 1.5rem;
     }
 
 }

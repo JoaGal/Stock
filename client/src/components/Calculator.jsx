@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/components/Calculator.css";
-import { CalculatorData } from "./CalculatorData";
+import { CalculatorData } from "./data/CalculatorData";
 export const Calculator = ({setCalculator}) => {
 
   const [calc, setCalc] = useState("");
@@ -26,9 +26,9 @@ export const Calculator = ({setCalculator}) => {
   };
 
   return (
-    <div className="container_cal" >
-      <div className="calculator">
-      <button className="close_cal" onClick={()=> setCalculator(false)}>
+    <div className="cal_container" >
+      <div className="cal_box">
+      <button className="close boxShadow" onClick={()=> setCalculator(false)}>
           <i className="fas fa-times" />
         </button>
         <div>

@@ -1,42 +1,4 @@
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 12rem;
-    /* padding-top: 12rem; */  
-}
-
-.container_clients h1{
-    color: #222;
-    margin-bottom: 1rem;
-}
-
-/* Clients */
-.container_clients{
-    width: 80%;
-    background-color: #fafafabb;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    margin-bottom: 1.5rem;
-    /* padding-top: 12rem; */  
-}
-
-.client-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #ffffff;
-    padding: 0.5rem;
-    margin: 1rem 0 0.5rem 0;
-    border-radius: 0.5rem;
-    border: 2px solid #2222221b;
-    /* padding-top: 12rem; */  
-}
-
-.more_clientes{
+.more_clientes {
     background-color: #3d78c6;
     border-radius: 0.5rem;
     border: 2px solid #2222221b;
@@ -46,34 +8,49 @@
     cursor: pointer;
     width: 100%;
     padding: 0.5rem;
+    margin: 1rem 0;
     transition: all 0.5s ease-in-out;
-    /* padding-top: 12rem; */  
 }
 
-.more_clientes:hover{
+.more_clientes:hover {
     background-color: #5497fd;
 }
 
-
-.client_box{
+.productCard_container {
     display: flex;
-    flex-direction: row;
-    align-items: start;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0.5rem;
+    margin: 1rem 0 0.5rem 0;
+    border-radius: 0.5rem;
 }
 
-.client_box div{
-    margin: 0.2rem 2rem;
+.productCard_container ul {
+    list-style-type: none;
+    width: 80%;
+}
+
+.productCard_container li {
+    list-style: none;
+    float: left;
+    text-align: center;
+    width: 120px;
+    overflow: hidden;
+}
+
+.productsData {
     color: #222222;
 }
 
-.client_buttons{
+.productCard_buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin: 0 1rem;
 }
 
-.client_buttons button{
+.productCard_buttons button {
     border: none;
     border-radius: 0.5rem;
     padding: 0.5rem;
@@ -82,38 +59,42 @@
     transition: all 0.5s ease-in-out;
 }
 
-.update{
+.update {
     color: #fafafa;
     background-color: #eebf16;
     border: 2px solid #2222221b;
 }
 
-.update:hover{
+.update:hover {
     background-color: #f3d568;
 }
 
-.delete{
+.delete {
     color: #fafafa;
     background-color: #c63d3d;
     border: 2px solid #2222221b;
 }
 
-.delete:hover{
+.delete:hover {
     background-color: #ff5e5e;
 }
 
-.container_totalPrice{
+.home_container-price {
     width: 80%;
     display: flex;
     justify-content: space-between;
-    background-color: #fafafabb;
+    background-color: #fafafa;
     padding: 1rem;
     border-radius: 0.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    margin-bottom: 1.5rem;
+    margin: 1rem 0;
+    /* fixed bottom bar */
+    position: fixed;
+    bottom: 10px;
+    z-index: -1;
+
 }
 
-.container_totalPrice h1{
+.home_container-price h1 {
     color: #fafafa;
     background-color: #46c63d;
     border: 2px solid #2222221b;
@@ -122,7 +103,7 @@
     font-size: 1.5rem;
 }
 
-.container_totalPrice button{
+.home_container-price button {
     border: 2px solid #2222221b;
     background-color: #3d78c6;
     border-radius: 0.5rem;
@@ -133,33 +114,47 @@
     transition: all 0.5s ease-in-out;
 }
 
+.home_container-price button:hover {
+    background-color: #5497fd;
+}
+
 @media only screen and (max-width: 730px) {
-    .container{
-        margin-top: 8rem;
-    }
-    .more_clientes{
+    .more_clientes {
         font-size: x-large;
         padding: 0.4rem;
     }
 
-    
-    .client_box div{
+
+    .client_box div {
         margin: 0.2rem 1.2rem;
     }
-    .client-container{
+
+    .client-container {
         flex-direction: column;
     }
-  .client_buttons{
+
+    .productCard_container li {
+        width: 50px;
+    }
+
+    .productCard_container li h3 {
+        font-size: 1rem;
+    }
+
+    .productCard_buttons {
         margin-top: 0.5rem;
-  }
-  .client_buttons button{
+    }
+
+    .productCard_buttons button {
         margin: 0 0.3rem;
-  }
-    .container_totalPrice h1{
+    }
+
+    .home_container-price h1 {
         padding: 0.4rem 1rem;
         font-size: 1.3rem;
     }
-    .container_totalPrice button{
+
+    .home_container-price button {
         padding: 0rem 0.6rem;
     }
 }

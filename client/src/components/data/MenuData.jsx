@@ -2,11 +2,16 @@ export const MenuData = [
     {
         title: 'fa-solid fa-house',
         url: '/',
-        id: 'nav-links',
+        id: 'navbar_links',
     },
     {
         title: 'fa-solid fa-address-book',
         url: '/contact',
-        id: 'nav-links',
+        id: 'navbar_links',
     },
+    {
+        title: 'fa-solid fa-right-to-bracket',
+        url: '/login',
+        id: 'navbar_links-login',
+    }
 ]

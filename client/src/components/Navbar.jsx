@@ -1,39 +1,34 @@
-import React, { Component } from "react";
-import logo from "../assets/logo.svg";
-import { MenuData } from "./MenuData";
-import "../styles/components/Navbar.css";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.svg";
+import { MenuData } from "./data/MenuData";
+import "../styles/components/Navbar.css";
 
-class Navbar extends Component {
-  state = { clicked: false };
+export const Navbar = () => {
+  const [state, setState] = useState(false);
 
-  handleClick = () => {
-    this.setState({ clicked: !this.state.clicked });
-  };
-
-  render() {
-    return (
-      <nav className="navbarItems">
-        <Link to="/">
-          <img src={logo} width={40} className="logo" />
-        </Link>
-        <div className="menu-icons" onClick={this.handleClick}>
-          <i
-            className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
-          ></i>
-        </div>
-        <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
-          {MenuData.map((item, index) => {
-            return (
-              <li key={index}>
-                <Link to={item.url} className={item.title} id={item.id} onClick={this.handleClick}/>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-    );
-  }
-}
-
-export default Navbar;
+  return (
+    <nav className="navbar_container boxShadow">
+      <Link to="/">
+        <img src={logo} width={40} />
+      </Link>
+      <div onClick={() => setState(!state)}>
+        <i className={state ? "fas fa-times" : "fas fa-bars"}></i>
+      </div>
+      <ul className={state ? "navbar_menu active" : "navbar_menu"}>
+        {MenuData.map((item, index) => {
+          return (
+            <li key={index}>
+              <Link
+                to={item.url}
+                className={item.title}
+                id={item.id}
+                onClick={() => setState(!state)}
+              />
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+};

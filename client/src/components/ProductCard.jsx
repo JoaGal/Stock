@@ -3,7 +3,7 @@ import  Axios  from "axios";
 import { toast } from "react-toastify";
 import "../styles/Home.css"
 
-export const CardClient = ({openUpdateClient, item, getClients}) => {
+export const ProductCard = ({openUpdateClient, item, getClients}) => {
 
 
     const deleteClient = (id) => {
@@ -14,22 +14,22 @@ export const CardClient = ({openUpdateClient, item, getClients}) => {
       };
 
   return (
-    <div className="client-container">
-      <div className="client_box">
-        <div>
-          <i className="fa-brands fa-product-hunt" />
+    <div className="productCard_container boxShadow">
+      <ul>
+        <li>
+          <i className="fa-brands fa-product-hunt productsData" />
           <h3>{item.product}</h3>
-        </div>
-        <div>
-        <i className="fa-sharp fa-solid fa-basket-shopping" />
+        </li>
+        <li>
+        <i className="fa-sharp fa-solid fa-basket-shopping productsData" />
           <h3>{item.amount}</h3>
-        </div>
-        <div>
-        <i className="fa-solid fa-tag" />
+        </li>
+        <li>
+        <i className="fa-solid fa-tag productsData" />
           <h3>${item.price}</h3>
-        </div>
-      </div>
-      <div className="client_buttons">
+        </li>
+      </ul>
+      <div className="productCard_buttons">
         <button className="update" onClick={() => openUpdateClient(item)}>
           <i className="fa-solid fa-pen" />
         </button>

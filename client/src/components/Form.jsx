@@ -1,8 +1,8 @@
 import "../styles/components/Form.css";
-import { FormInput } from "../components/FormInput";
-import { FormData } from "../components/FormData";
+import { FormData } from "./data/FormData";
 import Axios from "axios";
 import { toast } from "react-toastify";
+import { InputCustom } from "./InputCustom";
 
 export const Form = ({functionForm, handleChange, setOpenUpdate, form, setForm, openUpdate}) => {
     
@@ -43,12 +43,12 @@ export const Form = ({functionForm, handleChange, setOpenUpdate, form, setForm, 
   return (
     <div className="form_container">
       <div className="form_box">
-        <button className="close" onClick={closeForm}>
+        <button className="close boxShadow" onClick={closeForm}>
           <i className="fas fa-times" />
         </button>
-        <h1>Add Client</h1>
+        <h1 className="textShadow">Add Client</h1>
         {FormData.map((item, index) => (
-          <FormInput
+          <InputCustom
             key={index}
             label={item.label}
             type={item.type}
@@ -57,7 +57,7 @@ export const Form = ({functionForm, handleChange, setOpenUpdate, form, setForm, 
             value={form[item.name]}
           />
         ))}
-        <button className="submit" onClick={handleSubmit}>
+        <button className="submit boxShadow" onClick={handleSubmit}>
           Submit
         </button>
       </div>
