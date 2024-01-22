@@ -37,7 +37,7 @@ export const Home = () => {
     <>
       <div className="box">
         <h1 className="textShadow">Control Stock</h1>
-        <h2 className="textShadow">Hace tu lista del super wacho</h2>
+        <h2 className="textShadow">Create your own list with the blue button</h2>
         <button className="more_clientes boxShadow" onClick={handleAddProduct}>
           +
         </button>
