@@ -15,7 +15,7 @@ export const useControlUser = () => {
     const { name, email, password, confirmPassword } = inputValue;
     if (password === confirmPassword) {
       try {
-        const res = await Axios.post("http://localhost:3306/users/register", {
+        const res = await Axios.post("https://control-stock-backend.vercel.app/users/register", {
           name,
           email,
           password,
@@ -37,7 +37,7 @@ export const useControlUser = () => {
   const loginUser = async () => {
     const { email, password } = inputValue;
     try {
-      const res = await Axios.post("http://localhost:3306/users/login", {
+      const res = await Axios.post("https://control-stock-backend.vercel.app/users/login", {
         email,
         password,
       });
@@ -64,7 +64,7 @@ export const useControlUser = () => {
   const getUser = () => {
     const token = localStorage.getItem("token");
     if (token) {
-      Axios.get("http://localhost:3306/users/get", {
+      Axios.get("https://control-stock-backend.vercel.app/users/get", {
         headers: {
           Authorization: token, // Pass the token in the Authorization header
         },

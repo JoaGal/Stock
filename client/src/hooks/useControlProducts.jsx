@@ -18,7 +18,7 @@ export const useControlProducts = () => {
 
   //Create Product
   const createProducts = (setUpdateProduct) => {
-    Axios.post("http://localhost:3306/products/insert", {
+    Axios.post("https://control-stock-backend.vercel.app/products/insert", {
       product: inputValue.product,
       amount: parseInt(inputValue.amount),
       price: parseFloat(inputValue.price),
@@ -34,7 +34,7 @@ export const useControlProducts = () => {
 
   //Edit Product
   const editProducts = (setUpdateProduct) => {
-    Axios.put("http://localhost:3306/products/update", {
+    Axios.put("https://control-stock-backend.vercel.app/products/update", {
       product: inputValue.product,
       amount: parseInt(inputValue.amount),
       price: parseFloat(inputValue.price),
@@ -51,7 +51,7 @@ export const useControlProducts = () => {
   //Get Products
   const getProducts = () => {
     if (userData?.id !== undefined) {
-      Axios.get(`http://localhost:3306/products/get/${userData?.id}`)
+      Axios.get(`https://control-stock-backend.vercel.app/products/get/${userData?.id}`)
         .then((res) => {
           setProducts(res.data);
         })
