@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { InputValueContexts } from "../context/InputValueContext";
 
 export const InputCustom = (props) => {
-  
-    const { label, onChange, type, name, value} = props;
+  const { label, type, name, value } = props;
+  const { inputValue, setInputValue } = useContext(InputValueContexts);
+
+  const handleChange = (e) => {
+    setInputValue({ ...inputValue, [e.target.name]: e.target.value });
+  };
 
   return (
     <div className="inputCustom">
       <input
         placeholder=" "
         type={type}
-        onChange={onChange}
+        onChange={handleChange}
         name={name}
+        className="boxShadow"
         value={value}
-        className='boxShadow'
       />
       <label>{label}</label>
     </div>
-  )
-}
+  );
+};

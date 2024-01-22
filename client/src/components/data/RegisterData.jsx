@@ -15,7 +15,7 @@ export const RegisterData = [
         label: 'Password',
     },
     {
-        name: 'password2',
+        name: 'confirmPassword',
         type: 'password',
         label: 'Confirm Password',
     },

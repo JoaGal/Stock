@@ -7,6 +7,8 @@ import { Login } from "./pages/Login";
 import { motion } from "framer-motion";
 import { Register } from "./pages/Register";
 import { Navbar } from "./components/Navbar";
+import { InputValueContext } from "./context/InputValueContext";
+import { UserDataContext } from "./context/UserDataContext";
 
 function App() {
   return (
@@ -16,16 +18,20 @@ function App() {
       whileInView={{ opacity: 1 }}
     >
       <AnimatePresence>
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="*" element={<h1>404</h1>} />
-          </Routes>
-        </Router>
+        <InputValueContext>
+          <UserDataContext>
+            <Router>
+              <Navbar />
+              <Routes>
+                <Route exact path="/" element={<Home />} />
+                <Route exact path="/contact" element={<Contact />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="*" element={<h1>404</h1>} />
+              </Routes>
+            </Router>
+          </UserDataContext>
+        </InputValueContext>
       </AnimatePresence>
     </motion.div>
   );

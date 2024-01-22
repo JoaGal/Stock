@@ -1,17 +1,7 @@
 import React from "react";
-import  Axios  from "axios";
-import { toast } from "react-toastify";
 import "../styles/Home.css"
 
-export const ProductCard = ({openUpdateClient, item, getClients}) => {
-
-
-    const deleteClient = (id) => {
-        Axios.delete(`https://control-stock-server.vercel.app/api/delete/${id}`).then(() => {
-          getClients();
-          toast.success("Client deleted");
-        });
-      };
+export const ProductCard = ({openUpdateProduct, item, deleteProduct}) => {
 
   return (
     <div className="productCard_container boxShadow">
@@ -30,10 +20,10 @@ export const ProductCard = ({openUpdateClient, item, getClients}) => {
         </li>
       </ul>
       <div className="productCard_buttons">
-        <button className="update" onClick={() => openUpdateClient(item)}>
+        <button className="update" onClick={() => openUpdateProduct(item)}>
           <i className="fa-solid fa-pen" />
         </button>
-        <button className="delete" onClick={() => deleteClient(item.id)}>
+        <button className="delete" onClick={() => deleteProduct(item.id)}>
         <i className="fa-solid fa-trash" />
         </button>
       </div>

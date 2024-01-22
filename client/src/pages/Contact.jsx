@@ -13,9 +13,9 @@ export const Contact = () => {
     e.preventDefault();
 
     if (
-      form.current.user_name.value === "" &&
-      form.current.user_email.value === "" &&
-      form.current.message.value === ""
+      form.current.user_name.value !== "" &&
+      form.current.user_email.value !== "" &&
+      form.current.message.value !== ""
     ) {
       emailjs
         .sendForm(
@@ -40,10 +40,12 @@ export const Contact = () => {
   return (
     <div className="box">
       <h1 className="textShadow">Contact</h1>
-      <h2 className="textShadow">Our users are very satisfied about our excellent support</h2>
+      <h2 className="textShadow">
+        Our users are very satisfied about our excellent support
+      </h2>
       <div className="contact_form">
         <div className="contact_info">
-          <img src={joa} alt="logo" className="boxShadow"/>
+          <img src={joa} alt="logo" className="boxShadow" />
           <p className="textShadow">
             My name is Joaquin Galdeano, I'm a web developer. This is one of my
             first projects as a Full Stack. Any questions contact me!!
@@ -67,8 +69,18 @@ export const Contact = () => {
           </div>
         </div>
         <form className="contact_letter" ref={form} onSubmit={sendEmail}>
-          <InputCustom key="name" label={"Name"} type={"text"} name="user_name" />
-          <InputCustom key="gmail" label={"Email"} type={"email"} name="user_email" />
+          <InputCustom
+            key="name"
+            label={"Name"}
+            type={"text"}
+            name="user_name"
+          />
+          <InputCustom
+            key="gmail"
+            label={"Email"}
+            type={"email"}
+            name="user_email"
+          />
           <div className="inputCustom">
             <textarea
               placeholder=" "
@@ -78,7 +90,9 @@ export const Contact = () => {
             />
             <label>Message</label>
           </div>
-          <button type="submit" className="boxShadow submit">Submit</button>
+          <button type="submit" className="boxShadow submit">
+            Submit
+          </button>
         </form>
       </div>
       <ToastContainer position="bottom-right" autoClose={3000} />

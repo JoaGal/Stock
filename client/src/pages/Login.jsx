@@ -1,23 +1,23 @@
 import React from "react";
-import { LoginData } from "../components/data/LoginData";
-import { Link } from "react-router-dom";
-import { InputCustom } from "../components/InputCustom";
+import { ToastContainer } from "react-toastify";
+import { FormLogin } from "../components/FormLogin";
+import { useControlUser } from "../hooks/useControlUser";
 
 export const Login = () => {
+  const { logoutUser } = useControlUser();
+
   return (
-      <form className="box">
-        <h1 className="textShadow">Login</h1>
-        <h2 className="textShadow">To access you need to be registered</h2>
-        {LoginData.map((item, index) => (
-          <InputCustom
-            key={index}
-            label={item.label}
-            type={item.type}
-            name={item.name}
-          />
-        ))}
-        <button className="submit boxShadow">Submit</button>
-        <Link to="/register" className="textShadow">Need register?</Link>
-      </form>
+    <div className="box">
+      <h1 className="textShadow">Login</h1>
+      <h2 className="textShadow">To access you need to be registered</h2>
+      {localStorage.getItem("token") === null ? (
+        <FormLogin />
+      ) : (
+        <button className="submit boxShadow " onClick={logoutUser}>
+          Logout
+        </button>
+      )}
+      <ToastContainer position="bottom-right" autoClose={3000} />
+    </div>
   );
 };
