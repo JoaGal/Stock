@@ -12,8 +12,5 @@ app.use(express.json());
 app.use("/users", userRoutes);
 app.use("/products", productsRoutes);
 
-app.get("/", (req, res) => {
-    res.send("Welcome to the Api Stock!");
-});
 
 app.listen(port, () => console.log(`Server listening on port ${port}!`));
