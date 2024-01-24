@@ -16,5 +16,5 @@ export const CalculatorData = [
     { value: "0", cName: "equals" },
     { value: "00", cName: "number" },
     { value: ".", cName: "number" },
-    { value: "=", cName: "clear" },
+    { value: "=", cName: "equal" },
     ];
