@@ -39,14 +39,15 @@ a:hover{
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 12rem 0 0 0;
-  /* padding-top: 12rem; */  
+  /* padding-top: 12rem; */ 
 }
 
 .box{
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  margin: 12rem 0 0 0;
+  /* min-height: 38rem; */
 }
 .box h1{
     font: bold 80px/1 arial;
@@ -127,10 +128,9 @@ a:hover{
 }
 
 @media only screen and (max-width: 730px) {
-  .container{
-      margin: 8rem 0 0 0;
-  }
   .box h1{
     font: bold 70px/1 arial;
+    margin: 0;
+    /* min-height: 1rem; */
   }
 }

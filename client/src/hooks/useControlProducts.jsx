@@ -68,7 +68,7 @@ export const useControlProducts = () => {
   //Delete Product // Cambiar la url por /products/delete
   const deleteProduct = (id) => {
     Axios.delete(
-      `http://localhost:3306/products/delete/${id}`
+      `https://control-stock-backend.vercel.app/products/delete/${id}`
     ).then(() => {
       getProducts();
       toast.success("Client deleted");
