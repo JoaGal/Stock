@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../styles/components/Calculator.css";
 import { CalculatorData } from "./data/CalculatorData";
-import { toast } from "react-toastify";
 
 export const Calculator = ({ calculator, setCalculator }) => {
   const [value, setValue] = useState("0");
@@ -13,15 +12,13 @@ export const Calculator = ({ calculator, setCalculator }) => {
       (ops.includes(val) && ops.includes(value.slice(-1)))
     ) {
       return;
-    }
-    else if (val.includes("=")) {
+    } else if (val.includes("=")) {
       setValue(eval(value).toString());
       return;
     }
-    setValue(value === "0"  ? val : value + val);
-    
+    setValue(value === "0" ? val : value + val);
   };
-  
+
   const clearValue = () => {
     setValue("0");
   };

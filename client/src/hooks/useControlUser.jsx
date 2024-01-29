@@ -27,6 +27,7 @@ export const useControlUser = () => {
         }
       } catch (error) {
         console.error("Registration error:", error);
+        toast.error(error.response.data);
       }
     } else {
       toast.error("Passwords don't match");
@@ -50,7 +51,7 @@ export const useControlUser = () => {
       }
     } catch (error) {
       console.error("Login error:", error);
-      toast.error(error);
+      toast.error(error.response.data);
     }
   };
 
