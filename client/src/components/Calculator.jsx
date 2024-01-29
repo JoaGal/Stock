@@ -1,49 +1,61 @@
 import React, { useState } from "react";
 import "../styles/components/Calculator.css";
 import { CalculatorData } from "./data/CalculatorData";
-export const Calculator = ({setCalculator}) => {
+import { toast } from "react-toastify";
 
-  const [calc, setCalc] = useState("");
-  const [result, setResult] = useState("");
+export const Calculator = ({ calculator, setCalculator }) => {
+  const [value, setValue] = useState("0");
   const ops = ["/", "*", "+", "-", "."];
 
-  const updateCalc = (value) => {
+  const updateValue = (val) => {
     if (
-      (ops.includes(value) && calc === "") ||
-      (ops.includes(value) && ops.includes(calc.slice(-1)))
+      (ops.includes(val) && value === "0") ||
+      (ops.includes(val) && ops.includes(value.slice(-1)))
     ) {
       return;
     }
-    setCalc(calc + value);
-    if (!ops.includes(value)) {
-      setResult(eval(calc + value).toString());
+    else if (val.includes("=")) {
+      setValue(eval(value).toString());
+      return;
     }
+    setValue(value === "0"  ? val : value + val);
+    
   };
-
-  const clearResult = () => {
-    setCalc("");
-    setResult("");
+  
+  const clearValue = () => {
+    setValue("0");
   };
 
   return (
-    <div className="cal_container" >
-      <div className="cal_box">
-      <button className="close boxShadow" onClick={()=> setCalculator(false)}>
-          <i className="fas fa-times" />
-        </button>
-        <div>
-          <h2 className="value">{ result === "" ? 0 : result }</h2>
-          {CalculatorData.map((item, index) => (
-            <span
-              key={index}
-              className={item.cName}
-              onClick={item.value === "Clear" ? clearResult : () => updateCalc(item.value)}
+    <>
+      {calculator && (
+        <div className="cal_container">
+          <div className="cal_box">
+            <button
+              className="close boxShadow"
+              onClick={() => setCalculator(!calculator)}
             >
-              {item.value}
-            </span>
-          ))}
+              <i className="fas fa-times" />
+            </button>
+            <div>
+              <h2 className="value">{value}</h2>
+              {CalculatorData.map((item, index) => (
+                <span
+                  key={index}
+                  className={item.cName}
+                  onClick={
+                    item.value === "Clear"
+                      ? clearValue
+                      : () => updateValue(item.value)
+                  }
+                >
+                  {item.value}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };

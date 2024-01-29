@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useControlProducts } from "./useControlProducts";
+import { useControlProducts } from "../hooks/useControlProducts";
 
-export const useCalculatePrice = () => {
+export const calculatePrice = () => {
     const { products } = useControlProducts();
     const [totalPrice, setTotalPrice] = useState(0);
     const handleTotalPrice = () => {

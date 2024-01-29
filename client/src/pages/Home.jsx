@@ -5,15 +5,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { FormProduct } from "../components/FormProduct";
 import { useFormProduct } from "../hooks/useFormProduct";
 import { ProductCard } from "../components/ProductCard";
-import { Calculator } from "../components/Calculator";
 import { useControlProducts } from "../hooks/useControlProducts";
 import { useControlUser } from "../hooks/useControlUser";
 import { UserDataContexts } from "../context/UserDataContext";
 import { useNavigate } from "react-router-dom";
-import { TotalPrice } from "../components/TotalPrice";
+import { CalculatorCard } from "../components/CalculatorCard";
 
 export const Home = () => {
-  const [calculator, setCalculator] = useState(false);
   const { products, createProducts, editProducts, deleteProduct } = useControlProducts();
   const { openUpdateProduct, updateProduct, setUpdateProduct } = useFormProduct();
   const { getUser } = useControlUser();
@@ -32,6 +30,7 @@ export const Home = () => {
     updateProduct.create ? createProducts(setUpdateProduct) : editProducts(setUpdateProduct);
   };
 
+
   return (
     <>
       <div className="box">
@@ -49,8 +48,7 @@ export const Home = () => {
           />
         ))}
       </div>
-      <TotalPrice />
-      {calculator && <Calculator setCalculator={setCalculator} />}
+      <CalculatorCard />
       {updateProduct?.open && (
         <FormProduct
           setUpdateProduct={setUpdateProduct}
