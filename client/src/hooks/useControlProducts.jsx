@@ -8,8 +8,12 @@ export const useControlProducts = () => {
   const [products, setProducts] = useState([]);
   const { userData } = useContext(UserDataContexts);
   const { inputValue, setInputValue } = useContext(InputValueContexts);
+  const [updateProduct, setUpdateProduct] = useState({
+    open: false,
+    create: true,
+  });
 
-  const productMessage = (message, setUpdateProduct) => {
+  const productMessage = (message) => {
     setUpdateProduct({ open: false, create: true });
     setInputValue();
     getProducts();
@@ -17,7 +21,7 @@ export const useControlProducts = () => {
   };
 
   //Create Product
-  const createProducts = (setUpdateProduct) => {
+  const createProducts = () => {
     Axios.post("https://control-stock-backend.vercel.app/products/insert", {
       product: inputValue.product,
       amount: parseInt(inputValue.amount),
@@ -33,7 +37,7 @@ export const useControlProducts = () => {
   };
 
   //Edit Product
-  const editProducts = (setUpdateProduct) => {
+  const editProducts = () => {
     Axios.put("https://control-stock-backend.vercel.app/products/update", {
       product: inputValue.product,
       amount: parseInt(inputValue.amount),
@@ -51,7 +55,9 @@ export const useControlProducts = () => {
   //Get Products
   const getProducts = () => {
     if (userData?.id !== undefined) {
-      Axios.get(`https://control-stock-backend.vercel.app/products/get/${userData?.id}`)
+      Axios.get(
+        `https://control-stock-backend.vercel.app/products/get/${userData?.id}`
+      )
         .then((res) => {
           setProducts(res.data);
         })
@@ -65,7 +71,7 @@ export const useControlProducts = () => {
     getProducts();
   }, [userData]);
 
-  //Delete Product // Cambiar la url por /products/delete
+  //Delete Product
   const deleteProduct = (id) => {
     Axios.delete(
       `https://control-stock-backend.vercel.app/products/delete/${id}`
@@ -75,6 +81,23 @@ export const useControlProducts = () => {
     });
   };
 
+  //Open Form Product
+  const openUpdateProduct = (props) => {
+    if (props?.id !== undefined) {
+      setUpdateProduct({ open: !updateProduct.open, create: false });
+      setInputValue({
+        product: props.product,
+        amount: props.amount,
+        price: props.price,
+        id: props.id,
+      });
+      toast.warning("Can't revert a update");
+    } else {
+      setUpdateProduct({ open: !updateProduct.open, create: true });
+      props === true && setInputValue();
+    }
+  };
+
   return {
     products,
     setProducts,
@@ -82,5 +105,8 @@ export const useControlProducts = () => {
     createProducts,
     editProducts,
     deleteProduct,
+    openUpdateProduct,
+    updateProduct,
+    setUpdateProduct,
   };
 };

@@ -15,11 +15,14 @@ export const useControlUser = () => {
     const { name, email, password, confirmPassword } = inputValue;
     if (password === confirmPassword) {
       try {
-        const res = await Axios.post("https://control-stock-backend.vercel.app/users/register", {
-          name,
-          email,
-          password,
-        });
+        const res = await Axios.post(
+          "https://control-stock-backend.vercel.app/users/register",
+          {
+            name,
+            email,
+            password,
+          }
+        );
         if (res.data === "Email already exists") {
           toast.error(res.data);
         } else {
@@ -38,10 +41,13 @@ export const useControlUser = () => {
   const loginUser = async () => {
     const { email, password } = inputValue;
     try {
-      const res = await Axios.post("https://control-stock-backend.vercel.app/users/login", {
-        email,
-        password,
-      });
+      const res = await Axios.post(
+        "https://control-stock-backend.vercel.app/users/login",
+        {
+          email,
+          password,
+        }
+      );
       const { token } = res.data;
       if (res.data === "Invalid credentials") {
         toast.error(res.data);
@@ -58,6 +64,7 @@ export const useControlUser = () => {
   //Logout User
   const logoutUser = () => {
     localStorage.removeItem("token");
+    navigate("/");
     window.location.reload();
   };
 

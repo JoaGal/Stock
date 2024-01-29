@@ -3,7 +3,6 @@ import "../styles/Home.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FormProduct } from "../components/FormProduct";
-import { useFormProduct } from "../hooks/useFormProduct";
 import { ProductCard } from "../components/ProductCard";
 import { useControlProducts } from "../hooks/useControlProducts";
 import { useControlUser } from "../hooks/useControlUser";
@@ -12,8 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { CalculatorCard } from "../components/CalculatorCard";
 
 export const Home = () => {
-  const { products, createProducts, editProducts, deleteProduct } = useControlProducts();
-  const { openUpdateProduct, updateProduct, setUpdateProduct } = useFormProduct();
+  const { products, createProducts, editProducts, deleteProduct, updateProduct, openUpdateProduct, setUpdateProduct } = useControlProducts();
   const { getUser } = useControlUser();
   const navigate = useNavigate();
   const { userData } = useContext(UserDataContexts);
@@ -27,7 +25,7 @@ export const Home = () => {
   }, []);
 
   const handleSubmit = () => {
-    updateProduct.create ? createProducts(setUpdateProduct) : editProducts(setUpdateProduct);
+    updateProduct.create ? createProducts() : editProducts();
   };
 
 
