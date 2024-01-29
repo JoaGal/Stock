@@ -65,7 +65,6 @@ export const useControlUser = () => {
   const logoutUser = () => {
     localStorage.removeItem("token");
     navigate("/");
-    window.location.reload();
   };
 
   //get User
