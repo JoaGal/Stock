@@ -1,7 +1,6 @@
 import "./styles/App.css";
 import { Home } from "./pages/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
 import { Contact } from "./pages/Contact";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
@@ -12,7 +11,6 @@ import { UserDataContext } from "./context/UserDataContext";
 function App() {
   return (
     <div className="container">
-      <AnimatePresence>
         <InputValueContext>
           <UserDataContext>
             <Router>
@@ -27,7 +25,6 @@ function App() {
             </Router>
           </UserDataContext>
         </InputValueContext>
-      </AnimatePresence>
     </div>
   );
 }
