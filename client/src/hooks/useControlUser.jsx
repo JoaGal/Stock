@@ -65,7 +65,6 @@ export const useControlUser = () => {
   const logoutUser = () => {
     localStorage.removeItem("token");
     window.location.reload();
-    //window.location.reload() on vercel
   };
 
   //get User
