@@ -77,7 +77,7 @@ export const useControlProducts = () => {
       `https://control-stock-backend.vercel.app/products/delete/${id}`
     ).then(() => {
       getProducts();
-      toast.success("Client deleted");
+      toast.success("Product deleted");
     });
   };
 
