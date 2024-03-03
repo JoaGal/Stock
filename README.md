@@ -1,4 +1,4 @@
-## Invoices
+## Stock Control
 
 ![Stock Control](https://github.com/JoaGal/Stock/blob/master/client/src/assets/control-stock-joagal.vercel.app_.webp?raw=true)
 
